@@ -1,4 +1,4 @@
-# Calibration and qualification of BGC-Argo float data
+# BGC-Argo Data Calibration & Qualification
 
 The **bgc_argo** module consists of a collection of python-based Jupyter-notebooks design to show how to calibrate and qualify BGC-Argo float data. 
 
