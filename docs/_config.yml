@@ -21,8 +21,15 @@ parse:
     # including those that are enabled by default! See here: https://jupyterbook.org/en/stable/customize/config.html
     - html_image
 
+repository:
+  url: https://gitlab.ifremer.fr/odatis-public/vre/use-cases/1_bgc_argo # Online location of your book
+  # path_to_book:   # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links (optional)
+
+
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   favicon: ./assets/favicon.ico
+  use_repository_button: true
 
