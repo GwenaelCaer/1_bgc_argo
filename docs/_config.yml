@@ -1,0 +1,28 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: BGC-Argo Data Calibration & Qualification
+author: Gwenaël CAËR
+logo: ./assets/logo.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: "off"
+  
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default! See here: https://jupyterbook.org/en/stable/customize/config.html
+    - html_image
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  favicon: ./assets/favicon.ico
+

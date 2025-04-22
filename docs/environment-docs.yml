@@ -1,0 +1,8 @@
+name: base
+channels:
+  - conda-forge
+dependencies:
+  - jupyter-book
+  - pip
+  - pip:
+      - myst-parser

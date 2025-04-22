@@ -1,0 +1,10 @@
+name: odatis_bgc_argo
+channels:
+  - conda-forge
+dependencies:
+  - conda-forge::python=3.9
+  - conda-forge::notebook=6.4.12
+  - conda-forge::copernicusmarine
+  - conda-forge::numpy
+  - conda-forge::pandas
+  - conda-forge::xarray

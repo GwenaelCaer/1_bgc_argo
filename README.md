@@ -2,83 +2,89 @@
 
 The **bgc_argo** module consists of a collection of python-based Jupyter-notebooks design to show how to calibrate and qualify BGC-Argo float data. 
 
-## License
+Welcome! This repository features a series of Python Jupyter Notebooks that walk you through:
 
-TO DO
+✅ Accessing BGC-Argo data
+✅ Accessing GlobColour data 
+✅ Colating satelitte and In-Situ Data 
 
-## Authors
+---
 
-* [**Gwenaël Caër**] - [CNRS / ODATIS](https://www.odatis-ocean.fr/en/)
-* [**Catherine Schmechtig**] - [CNRS / ODATIS](https://www.odatis-ocean.fr/en/)
+## ⚙️ Prerequisites
 
+You’ll need **Jupyter Notebook** to explore this project.  
+We recommend installing the [Anaconda distribution](https://www.anaconda.com/) which includes Jupyter and all the basics.
 
-## Prerequisites
+---
 
-You will require `Jupyter Notebook` to run this code. We recommend that you install the latest [Anaconda Python distribution](https://www.anaconda.com/) for your operating system. Anaconda Python distributions include Jupyter Notebook.
+## 🚀 Quickstart
 
-## Installation
+### 1. Clone the Repository
 
-The simplest and best way to install these packages is via Git. Users can clone this repository by running the following commands from either their terminal (on Linux/OSx), or from the [Anaconda prompt](https://docs.anaconda.com/anaconda/user-guide/getting-started/). 
+```bash
+git clone https://gitlab.ifremer.fr/odatis-public/vre/use-cases/1_bgc_argo.git
+cd 1_bgc_argo
+```
 
-Once you have opened a terminal/prompt, you should navigate to the directory where you want to put the code. Once you are in the correct directory, you should run the following command;
+### 2. Set Up the Environment
 
-`git clone https://gitlab.ifremer.fr/odatis/vre/use-cases/1_bgc_argo.git`
+Use the provided `environment-notebooks.yml` file to create a Conda environment:
 
-This will make a local copy of all the relevant files.
+```bash
+conda env create -f notebooks/environment-notebooks.yml
+conda activate odatis_bgc_argo
+```
 
-## Usage
+(Optional) Install the kernel for Jupyter:
 
-### Python environments
+```bash
+ipython kernel install --user --name=odatis_bgc_argo
+```
 
-Python allows users to create specific environments that suit their applications. 
-This tutorials included in this collection require a number of non-standard packages - e.g. those that are not included by default in Anaconda. In this directory, users will find a *environment.yaml* file which can be used to construct an environment that will install all the required packages.
+### 3. Launch Jupyter
 
-To construct the environment, you should open either **terminal** (Linux/OSx) or an **Anaconda prompt** window and navigate to repository folder you downloaded in the **Installation** section above. In this folder there is a file called **environment.yml**. This contains all the information we need to install the relevant packages.
+```bash
+jupyter notebook
+```
 
-To create the environment, run:
+Your browser should open Jupyter. If not, copy-paste the URL from your terminal into a browser manually.
 
-`conda env create -f environment.yml`
+> 📌 Make sure you run `jupyter notebook` from **within** the repository folder, or some files might not be accessible.
 
-This will create a Python environment called **odatis_bgc_argo**. The environment won't be activated by default. To activate it, run:
+---
 
-`conda activate odatis_bgc_argo`
+## 🧪 Usage Notes
 
-Now you are ready to go!
+- Start with the [index.ipynb](.notebooks/index.ipynb) notebook.
+- Notebooks are interactive – feel free to experiment!
+- The project uses non-standard Python packages. Make sure to activate the `odatis_bgc_argo` environment each time before launching Jupyter.
 
-*Note: remember that you may need to reactivate the environment in every new window instance*
+---
 
-### Running Jupyter Notebook
+## 📚 Documentation
 
-This module is based around a series of [Jupyter Notebooks](https://jupyter.org/). These support high-level interactive learning by allowing us to combine code, text description and data visualisations.
+To build the documentation locally:
 
-To run Jupyter Notebook, open a terminal or Anaconda prompt and make sure you have activated the correct environment. Again, navigate to the repository folder.
+```bash
+conda env create -f docs/environment-docs.yml
+conda activate odatis_docs
+rsync -a notebooks/ docs/
+jupyter-book build docs/
+```
 
-Now you can run Jupyter using:
+The documentation is available here:  
+👉 [https://odatis-public.gitlab-pages.ifremer.fr/vre/use-cases/1_bgc_argo](https://odatis-public.gitlab-pages.ifremer.fr/vre/use-cases/1_bgc_argo)
 
-`jupyter notebook` or `jupyter-notebook`, depending on your operating system.
+---
 
-This should open Jupyter Notebooks in a browser window. On occasion, Jupyter may not be able to open a window and will give you a URL to past in your browser. Please do so, if required.
+## 📜 License
 
-*Note: Jupyter Notebook is not able to find modules that are 'above' it in a directory  tree, and you will unable to navigate to these. So make sure you run the line above from the correct directory!*
+This project is licensed under the **GNU LGPL v3.0**.  
+See the [LICENSE](./LICENSE) file for details.
 
-Now you can run the notebooks! We recommend you start with the [index](./index.ipynb) module.
+---
 
-<hr>
-<hr>
+## 👥 Authors
 
-### Overview for advanced users
-
-**Installation:**
-
-`git clone https://gitlab.ifremer.fr/odatis/vre/use-cases/1_bgc_argo.git`
-
-**Create and set environment**
-
-`conda env create -f environment.yml` \
-`conda activate odatis_bgc_argo`
-
-`ipython kernel install --user --name=odatis_bgc_argo`
-
-**Run**
-
-`jupyter notebook` or `jupyter-notebook`
+- **Gwenaël CAËR** - [CNRS / ODATIS](https://www.odatis-ocean.fr/en/)
+- **Catherine SCHMECHTIG** - [CNRS / ODATIS](https://www.odatis-ocean.fr/en/)
