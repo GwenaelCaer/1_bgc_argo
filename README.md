@@ -4,9 +4,9 @@
 
 Welcome! This repository features a series of Python Jupyter Notebooks that walk you through:
 
-✅ Preparing and cleaning heterogeneous citizen science data for AI use  
-✅ Training and fine-tuning a YOLOv8 object detection model  
-✅ Automatically annotating new benthic images using model inference
+✅ Accessing BGC-Argo data  
+✅ Accessing GlobColour data  
+✅ Colating satelitte and In-Situ Data
 
 ---
 
