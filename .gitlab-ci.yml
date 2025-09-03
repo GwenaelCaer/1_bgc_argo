@@ -14,4 +14,4 @@ pages:
     - rsync -a notebooks/ docs/
   rules:
     - !reference [.documentation:publish:rules, rules]
-    - when: never
+    - when: always
