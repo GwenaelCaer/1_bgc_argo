@@ -1,10 +1,9 @@
 include:
   - component: $CI_SERVER_FQDN/dev-ops/templates/automatisation/ci-cd/pipeline-documentation-jupyterbook@~latest
-
-variables:
-  DOCUMENTATION_CONDA_REQUIREMENTS: "./docs/environment-docs.yml"
-  DOCUMENTATION_SOURCEDIR: "docs"
-  DOCUMENTATION_BUILDDIR: "docs/_build/html/"
+    inputs:
+      - documentation_conf_file: "./docs/environment-docs.yml"
+      - documentation_sourcedir: "docs"
+      - documentation_builddir: "docs/_build/html/"
 
 pages:
   stage: documentation
