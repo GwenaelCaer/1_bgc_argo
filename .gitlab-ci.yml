@@ -1,9 +1,10 @@
 include:
   - component: $CI_SERVER_FQDN/dev-ops/templates/automatisation/ci-cd/pipeline-documentation-jupyterbook@~latest
     inputs:
-      documentation_conf_file: "./docs/environment-docs.yml"
+      documentation_conf_file: "docs/_config.yml"
       documentation_sourcedir: "docs"
       documentation_builddir: "docs/_build/html/"
+      documentation_python_requirements: "docs/requirements.txt"
 
 pages:
   stage: documentation
@@ -14,4 +15,4 @@ pages:
     - rsync -a notebooks/ docs/
   rules:
     - !reference [.documentation:publish:rules, rules]
-    - when: always
+    - when: never
