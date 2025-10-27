@@ -1,5 +1,90 @@
 variables:
   DOCUMENTATION_CONDA_REQUIREMENTS: "ci/requirements/doc.yml"
+  DOCUMENTATION_SOURCEDIR: "docs"
+  DOCUMENTATION_BUILDDIR: "docs/_build/html/"
+  DOCUMENTATION_BASE_PYTHON_IMAGE: "gitlab-registry.ifremer.fr/ifremer-commons/docker/internal-images/mamba-poetry:24.7.1-2"
+
+stages:
+  - documentation
+
+# ------------------------------------------------------------
+# Étape : création de l'environnement Conda pour la doc
+# ------------------------------------------------------------
+.documentation:python-conda:requirements:
+  image: $DOCUMENTATION_BASE_PYTHON_IMAGE
+  before_script:
+    - export DEBIAN_FRONTEND=noninteractive
+    - mamba --version
+    - mamba env create -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
+
+# ------------------------------------------------------------
+# Étape : build HTML de la doc MyST
+# ------------------------------------------------------------
+.documentation:myst:build:
+  extends:
+    - .documentation:python-conda:requirements
+  script:
+    - source activate base
+
+    # Installation des outils système si nécessaires
+    - apt-get update && apt-get install -y rsync
+
+    # Build des notebooks / docs
+    - rsync -a notebooks/ docs/ || true
+    - cd $DOCUMENTATION_SOURCEDIR
+    - export BASE_URL="/vre/use-cases/1_bgc_argo"
+    # - myst install --yes   # installe Node.js interne si besoin, non interactif
+    - myst build --html
+  artifacts:
+    paths:
+      - $DOCUMENTATION_BUILDDIR
+    expire_in: 1 week
+
+# ------------------------------------------------------------
+# Étape : préparation GitLab Pages
+# ------------------------------------------------------------
+.documentation:myst:gitlab-pages:
+  extends:
+    - .documentation:myst:build
+  after_script:
+    - mv $DOCUMENTATION_BUILDDIR public || true
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 week
+
+# ------------------------------------------------------------
+# Job final : Pages
+# ------------------------------------------------------------
+pages:
+  stage: documentation
+  extends:
+    - .documentation:myst:gitlab-pages
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: always
+    - when: never
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+variables:
+  DOCUMENTATION_CONDA_REQUIREMENTS: "ci/requirements/doc.yml"
   DOCUMENTATION_POETRY_DIRECTORY: ""
   DOCUMENTATION_PYTHON_REQUIREMENTS: ""
   DOCUMENTATION_SOURCEDIR: "docs"
