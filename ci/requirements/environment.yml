@@ -1,0 +1,16 @@
+name: odatis-bgc-argo
+channels:
+  - conda-forge
+dependencies:
+  # Required dependencies
+  - python>=3.9
+  - notebook>=6.4.12
+  - copernicusmarine
+  - numpy<2.0.0
+  - xarray
+  - pytcube
+
+  # Optional dependencies
+  - ipykernel
+
+

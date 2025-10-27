@@ -1,15 +1,49 @@
-include:
-  - component: $CI_SERVER_FQDN/dev-ops/templates/automatisation/ci-cd/pipeline-documentation-jupyterbook@~latest
-    inputs:
-      documentation_conf_file: "docs/_config.yml"
-      documentation_sourcedir: "docs"
-      documentation_builddir: "docs/_build/html/"
-      documentation_python_requirements: "docs/requirements.txt"
+variables:
+  DOCUMENTATION_CONDA_REQUIREMENTS: "ci/requirements/doc.yml"
+  DOCUMENTATION_POETRY_DIRECTORY: ""
+  DOCUMENTATION_PYTHON_REQUIREMENTS: ""
+  DOCUMENTATION_SOURCEDIR: "docs"
+  DOCUMENTATION_BUILDDIR: "docs/_build/html/"
+  DOCUMENTATION_BASE_PYTHON_IMAGE: "gitlab-registry.ifremer.fr/ifremer-commons/docker/internal-images/mamba-poetry:24.7.1-2"
+
+stages:
+  - documentation
+
+.documentation:python-conda:requirements:
+  image: $DOCUMENTATION_BASE_PYTHON_IMAGE
+  before_script:
+    - pip install --upgrade pip
+    - '[[ "_$DOCUMENTATION_CONDA_REQUIREMENTS" != "_" ]] &&  mamba env update -n base --file $DOCUMENTATION_CONDA_REQUIREMENTS'
+    - '[[ "_$DOCUMENTATION_POETRY_DIRECTORY" != "_" ]] &&  mamba run -n base poetry install $DOCUMENTATION_POETRY_OPTS'
+    - '[[ "_$DOCUMENTATION_PYTHON_REQUIREMENTS" != "_" ]] &&  pip install -r $DOCUMENTATION_PYTHON_REQUIREMENTS'
+
+.documentation:myst:build:
+  extends:
+    - .documentation:python-conda:requirements
+  script:
+    - pip install mystmd
+    - cd $DOCUMENTATION_SOURCEDIR
+    - export BASE_URL="/vre/use-cases/1_bgc_argo"
+    - myst build --html
+  artifacts:
+    paths:
+      - $DOCUMENTATION_BUILDDIR
+    expire_in: 1 week
+
+.documentation:myst:gitlab-pages:
+  extends:
+    - .documentation:myst:build
+  after_script:
+    - mv $DOCUMENTATION_BUILDDIR public
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 week
 
 pages:
   stage: documentation
   extends:
-    - .documentation:jupyterbook:gitlab-pages
+    - .documentation:myst:gitlab-pages
   before_script:
     - apt-get update && apt-get install -y rsync
     - rsync -a notebooks/ docs/

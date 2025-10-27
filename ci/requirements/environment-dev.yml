@@ -1,0 +1,11 @@
+name: odatis-bgc-argo
+channels:
+  - conda-forge
+dependencies:
+  # Test dependencies
+  # - pre-commit
+  - pytest
+  - pytest-cov
+
+  # Docs dependencies
+  - mystmd

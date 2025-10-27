@@ -4,6 +4,7 @@
 **/_documents
 **/_dev
 TODO.md
+_docs
 **/Thumbs.db
 /notebooks/globcolour.ipynb
 /notebooks/globcolour_without_pytcube.ipynb

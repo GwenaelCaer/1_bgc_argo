@@ -1,9 +1,0 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
-format: jb-book
-root: index
-chapters:
-- file: 1_BGC-Argo_data_access
-- file: 2_OCEANCOLOUR_data_access
-- file: 3_Colocalizing_in-situ_and_satellite_data
