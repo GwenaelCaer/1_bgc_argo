@@ -29,13 +29,9 @@ stages:
 
     # Build des notebooks / docs
     - rsync -a notebooks/ docs/
-    - ls -R $DOCUMENTATION_SOURCEDIR
     - cd $DOCUMENTATION_SOURCEDIR
-    - echo "MyST CLI version:"
-    - myst --version
-    - export HOST=127.0.0.1
+    - export HOST=127.0.0.1 # https://github.com/jupyter-book/mystmd/issues/2304
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
-    # - ls -R $DOCUMENTATION_BUILDDIR
     - myst build --html --keep-host
 
   artifacts:
