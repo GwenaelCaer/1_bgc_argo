@@ -13,9 +13,7 @@ stages:
 .documentation:python-conda:requirements:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
-    - pip install mystmd
-    # - mamba install -n base -c conda-forge nodejs
-    # - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
+    - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
 
 # ------------------------------------------------------------
 # Étape : build HTML de la doc MyST
@@ -30,10 +28,11 @@ stages:
     - apt-get update && apt-get install -y rsync
 
     # Build des notebooks / docs
-    - rsync -a notebooks/ docs/ || true
+    - rsync -a notebooks/ docs/
     - cd $DOCUMENTATION_SOURCEDIR
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
-    - myst build --html || true
+    - myst build --html
+    - ls -R $DOCUMENTATION_SOURCEDIR
     - ls -R $DOCUMENTATION_BUILDDIR
     - echo "finish"
 
