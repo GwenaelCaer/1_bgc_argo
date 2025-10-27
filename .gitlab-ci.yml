@@ -21,7 +21,8 @@ stages:
   extends:
     - .documentation:python-conda:requirements
   script:
-    - pip install mystmd
+    # - pip install mystmd
+    - apt-get update && apt-get install -y nodejs npm
     - cd $DOCUMENTATION_SOURCEDIR
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
     - myst build --html
