@@ -13,8 +13,6 @@ stages:
 .documentation:python-conda:requirements:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
-    - export DEBIAN_FRONTEND=noninteractive
-    - mamba --version
     - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
 
 # ------------------------------------------------------------
@@ -33,7 +31,7 @@ stages:
     - rsync -a notebooks/ docs/ || true
     - cd $DOCUMENTATION_SOURCEDIR
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
-    - myst build --html
+    - myst build --html --ci
   artifacts:
     paths:
       - $DOCUMENTATION_BUILDDIR
