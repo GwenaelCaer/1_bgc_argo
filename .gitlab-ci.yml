@@ -14,6 +14,7 @@ stages:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
     - pip install mystmd==1.6.0
+    - mamba install -n base -c conda-forge nodejs
     # - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
 
 # ------------------------------------------------------------
