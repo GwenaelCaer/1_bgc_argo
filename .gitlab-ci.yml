@@ -29,9 +29,9 @@ stages:
 
     # Build des notebooks / docs
     - rsync -a notebooks/ docs/
+    - ls -R $DOCUMENTATION_SOURCEDIR
     - cd $DOCUMENTATION_SOURCEDIR
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
-    - ls -R $DOCUMENTATION_SOURCEDIR
     # - ls -R $DOCUMENTATION_BUILDDIR
     - echo "finish"
     - myst build --html
