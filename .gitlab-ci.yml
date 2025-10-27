@@ -32,6 +32,7 @@ stages:
     - cd $DOCUMENTATION_SOURCEDIR
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
     - myst build --html --ci
+    - ls -R $DOCUMENTATION_BUILDDIR
   artifacts:
     paths:
       - $DOCUMENTATION_BUILDDIR
