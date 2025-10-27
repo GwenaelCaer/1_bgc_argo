@@ -24,6 +24,7 @@ project:
     - file: notebooks/2_OCEANCOLOUR_data_access.ipynb
     - file: notebooks/3_Colocalizing_in-situ_and_satellite_data.ipynb
 
+
 site:
   template: book-theme
   options:
@@ -40,7 +41,7 @@ site:
     - title: Gallery
       url: https://odatis-public.gitlab-pages.ifremer.fr/vre/gallery
   parts:
-    footer:
+    footer: |
         :::::{grid} 3
         :class: items-center
 
