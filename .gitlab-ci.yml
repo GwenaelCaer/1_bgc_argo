@@ -33,7 +33,6 @@ stages:
     - rsync -a notebooks/ docs/ || true
     - cd $DOCUMENTATION_SOURCEDIR
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
-    # - myst install --yes   # installe Node.js interne si besoin, non interactif
     - myst build --html
   artifacts:
     paths:
@@ -47,7 +46,7 @@ stages:
   extends:
     - .documentation:myst:build
   after_script:
-    - mv $DOCUMENTATION_BUILDDIR public || true
+    - mv $DOCUMENTATION_BUILDDIR public
   artifacts:
     paths:
       - public

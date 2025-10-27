@@ -7,6 +7,7 @@ TODO.md
 _docs
 docs/_build
 _build
+assets
 **/Thumbs.db
 /notebooks/globcolour.ipynb
 /notebooks/globcolour_without_pytcube.ipynb

@@ -6,7 +6,7 @@ extends:
 project:
   id: e1554835-9c1e-4213-94f2-e9c0e3c385bc
   toc:
-    - file: index
-    - file: 1_BGC-Argo_data_access
-    - file: 2_OCEANCOLOUR_data_access
-    - file: 3_Colocalizing_in-situ_and_satellite_data
+    - file: index.ipynb
+    - file: 1_BGC-Argo_data_access.ipynb
+    - file: 2_OCEANCOLOUR_data_access.ipynb
+    - file: 3_Colocalizing_in-situ_and_satellite_data.ipynb
