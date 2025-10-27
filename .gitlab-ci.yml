@@ -13,7 +13,8 @@ stages:
 .documentation:python-conda:requirements:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
-    - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
+    - pip install mystmd==1.6.0
+    # - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
 
 # ------------------------------------------------------------
 # Étape : build HTML de la doc MyST
@@ -36,7 +37,6 @@ stages:
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
     # - ls -R $DOCUMENTATION_BUILDDIR
     - myst build --html
-
 
   artifacts:
     paths:
