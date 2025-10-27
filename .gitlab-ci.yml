@@ -35,7 +35,7 @@ stages:
     - myst --version
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
     # - ls -R $DOCUMENTATION_BUILDDIR
-    - myst build --html --keep-host
+    - myst build --html
 
 
   artifacts:
