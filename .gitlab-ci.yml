@@ -9,20 +9,27 @@ variables:
 stages:
   - documentation
 
+# ------------------------------------------------------------
+# Base : installation des dépendances conda pour la doc
+# ------------------------------------------------------------
 .documentation:python-conda:requirements:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
-    - pip install --upgrade pip
-    - '[[ "_$DOCUMENTATION_CONDA_REQUIREMENTS" != "_" ]] &&  mamba env update -n base --file $DOCUMENTATION_CONDA_REQUIREMENTS'
-    - '[[ "_$DOCUMENTATION_POETRY_DIRECTORY" != "_" ]] &&  mamba run -n base poetry install $DOCUMENTATION_POETRY_OPTS'
-    - '[[ "_$DOCUMENTATION_PYTHON_REQUIREMENTS" != "_" ]] &&  pip install -r $DOCUMENTATION_PYTHON_REQUIREMENTS'
+    # Installation des outils nécessaires à MyST
+    # - export DEBIAN_FRONTEND=noninteractive
+    - apt-get update && apt-get install -y rsync #nodejs npm rsync
+    - pip install --upgrade pip mystmd
+    - myst install --yes  # installe Node.js interne si besoin, sans interaction
 
+# ------------------------------------------------------------
+# Étape : build HTML de la documentation avec MyST
+# ------------------------------------------------------------
 .documentation:myst:build:
   extends:
     - .documentation:python-conda:requirements
   script:
-    # - pip install mystmd
-    # - apt-get update && apt-get install -y nodejs npm
+    # Préparation des fichiers docs
+    - rsync -a notebooks/ docs/ || true
     - cd $DOCUMENTATION_SOURCEDIR
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
     - myst build --html
@@ -31,23 +38,83 @@ stages:
       - $DOCUMENTATION_BUILDDIR
     expire_in: 1 week
 
+# ------------------------------------------------------------
+# Étape : publication sur GitLab Pages
+# ------------------------------------------------------------
 .documentation:myst:gitlab-pages:
   extends:
     - .documentation:myst:build
   after_script:
-    - mv $DOCUMENTATION_BUILDDIR public
+    - mv $DOCUMENTATION_BUILDDIR public || true
   artifacts:
     paths:
       - public
     expire_in: 1 week
 
+# ------------------------------------------------------------
+# Job final : Pages
+# ------------------------------------------------------------
 pages:
   stage: documentation
   extends:
     - .documentation:myst:gitlab-pages
-  before_script:
-    - apt-get update && apt-get install -y rsync
-    - rsync -a notebooks/ docs/
-  # rules:
-  #   - !reference [.documentation:publish:rules, rules]
-  #   - when: never
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: always
+    - when: never
+
+
+
+
+
+# variables:
+#   DOCUMENTATION_CONDA_REQUIREMENTS: "ci/requirements/doc.yml"
+#   DOCUMENTATION_POETRY_DIRECTORY: ""
+#   DOCUMENTATION_PYTHON_REQUIREMENTS: ""
+#   DOCUMENTATION_SOURCEDIR: "docs"
+#   DOCUMENTATION_BUILDDIR: "docs/_build/html/"
+#   DOCUMENTATION_BASE_PYTHON_IMAGE: "gitlab-registry.ifremer.fr/ifremer-commons/docker/internal-images/mamba-poetry:24.7.1-2"
+
+# stages:
+#   - documentation
+
+# .documentation:python-conda:requirements:
+#   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
+#   before_script:
+#     - pip install --upgrade pip
+#     - mamba env update -n base --file $DOCUMENTATION_CONDA_REQUIREMENTS'
+
+# .documentation:myst:build:
+#   extends:
+#     - .documentation:python-conda:requirements
+#   script:
+#     # - pip install mystmd
+#     # - apt-get update && apt-get install -y nodejs npm
+#     - cd $DOCUMENTATION_SOURCEDIR
+#     - export BASE_URL="/vre/use-cases/1_bgc_argo"
+#     - myst build --html
+#   artifacts:
+#     paths:
+#       - $DOCUMENTATION_BUILDDIR
+#     expire_in: 1 week
+
+# .documentation:myst:gitlab-pages:
+#   extends:
+#     - .documentation:myst:build
+#   after_script:
+#     - mv $DOCUMENTATION_BUILDDIR public
+#   artifacts:
+#     paths:
+#       - public
+#     expire_in: 1 week
+
+# pages:
+#   stage: documentation
+#   extends:
+#     - .documentation:myst:gitlab-pages
+#   before_script:
+#     - apt-get update && apt-get install -y rsync
+#     - rsync -a notebooks/ docs/
+#   # rules:
+#   #   - !reference [.documentation:publish:rules, rules]
+#   #   - when: never
