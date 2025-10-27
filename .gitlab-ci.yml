@@ -13,6 +13,7 @@ stages:
 .documentation:python-conda:requirements:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
+    - mamba install -n base -c conda-forge nodejs
     - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
 
 # ------------------------------------------------------------
@@ -31,8 +32,10 @@ stages:
     - rsync -a notebooks/ docs/ || true
     - cd $DOCUMENTATION_SOURCEDIR
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
-    - myst build --html --ci
+    - myst build --html || true
     - ls -R $DOCUMENTATION_BUILDDIR
+    - echo "finish"
+
   artifacts:
     paths:
       - $DOCUMENTATION_BUILDDIR

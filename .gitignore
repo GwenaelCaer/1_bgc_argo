@@ -9,6 +9,12 @@ docs/_build
 _build
 assets
 **/Thumbs.db
+docs/1_BGC-Argo_data_access.ipynb
+docs/2_OCEANCOLOUR_data_access.ipynb
+docs/3_Colocalizing_in-situ_and_satellite_data.ipynb
+docs/globcolour_without_pytcube.ipynb
+docs/globcolour.ipynb
+docs/_static/colocalisation_schema.png
 /notebooks/globcolour.ipynb
 /notebooks/globcolour_without_pytcube.ipynb
 /notebooks/argo_bio-profile_index.txt
