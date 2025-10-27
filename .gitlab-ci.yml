@@ -13,8 +13,9 @@ stages:
 .documentation:python-conda:requirements:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
-    - mamba install -n base -c conda-forge nodejs
-    - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
+    - pip install mystmd
+    # - mamba install -n base -c conda-forge nodejs
+    # - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
 
 # ------------------------------------------------------------
 # Étape : build HTML de la doc MyST
@@ -23,7 +24,7 @@ stages:
   extends:
     - .documentation:python-conda:requirements
   script:
-    - source activate base
+    # - source activate base
 
     # Installation des outils système si nécessaires
     - apt-get update && apt-get install -y rsync
