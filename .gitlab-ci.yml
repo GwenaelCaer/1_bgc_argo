@@ -47,6 +47,6 @@ pages:
   before_script:
     - apt-get update && apt-get install -y rsync
     - rsync -a notebooks/ docs/
-  rules:
-    - !reference [.documentation:publish:rules, rules]
-    - when: never
+  # rules:
+  #   - !reference [.documentation:publish:rules, rules]
+  #   - when: never
