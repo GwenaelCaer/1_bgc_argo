@@ -31,6 +31,8 @@ stages:
     - rsync -a notebooks/ docs/
     - ls -R $DOCUMENTATION_SOURCEDIR
     - cd $DOCUMENTATION_SOURCEDIR
+    - echo "MyST CLI version:"
+    - myst --version
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
     # - ls -R $DOCUMENTATION_BUILDDIR
     - myst build --html --keep-host
