@@ -28,7 +28,7 @@ stages:
     # - cd $DOCUMENTATION_SOURCEDIR
     - export HOST=127.0.0.1 # https://github.com/jupyter-book/mystmd/issues/2304
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
-    - myst build --html --keep-host
+    - myst build --html #--keep-host
 
   artifacts:
     paths:
