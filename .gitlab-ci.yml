@@ -1,7 +1,7 @@
 variables:
   DOCUMENTATION_CONDA_REQUIREMENTS: "ci/requirements/doc.yml"
-  DOCUMENTATION_SOURCEDIR: "docs"
-  DOCUMENTATION_BUILDDIR: "docs/_build/html/"
+  DOCUMENTATION_SOURCEDIR: ""
+  DOCUMENTATION_BUILDDIR: "_build/html/"
   DOCUMENTATION_BASE_PYTHON_IMAGE: "gitlab-registry.ifremer.fr/ifremer-commons/docker/internal-images/mamba-poetry:24.7.1-2"
 
 stages:
@@ -22,13 +22,8 @@ stages:
   extends:
     - .documentation:python-conda:requirements
   script:
-    # - source activate base
-
-    # Installation des outils système si nécessaires
-    - apt-get update && apt-get install -y rsync
 
     # Build des notebooks / docs
-    - rsync -a notebooks/ docs/
     - cd $DOCUMENTATION_SOURCEDIR
     - export HOST=127.0.0.1 # https://github.com/jupyter-book/mystmd/issues/2304
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
