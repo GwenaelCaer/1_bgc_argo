@@ -14,7 +14,7 @@ stages:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
     - pip install mystmd==1.6.0
-    - mamba install -n base -c conda-forge nodejs
+    - mamba install -n base -c conda-forge nodejs -y
     # - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
 
 # ------------------------------------------------------------
@@ -35,6 +35,7 @@ stages:
     - cd $DOCUMENTATION_SOURCEDIR
     - echo "MyST CLI version:"
     - myst --version
+    - export HOST=127.0.0.1
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
     # - ls -R $DOCUMENTATION_BUILDDIR
     - myst build --html
