@@ -3,7 +3,3 @@ version: 1
 site:
   parts:
     footer: footer.md
-
-
-  # options:
-  #   style: ./css/footer.css
