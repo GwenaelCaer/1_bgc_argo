@@ -1,5 +1,5 @@
 variables:
-  DOCUMENTATION_CONDA_REQUIREMENTS: "ci/requirements/doc.yml"
+  # DOCUMENTATION_CONDA_REQUIREMENTS: "ci/requirements/doc.yml"
   DOCUMENTATION_SOURCEDIR: ""
   DOCUMENTATION_BUILDDIR: "_build/html/"
   DOCUMENTATION_BASE_PYTHON_IMAGE: "gitlab-registry.ifremer.fr/ifremer-commons/docker/internal-images/mamba-poetry:24.7.1-2"
@@ -10,7 +10,8 @@ stages:
 .documentation:python-conda:requirements:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
-    - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
+    - mamba install -c conda-forge -n base mystmd
+    # - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
     - myst --version
 
 .documentation:myst:build:
