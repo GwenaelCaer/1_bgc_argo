@@ -37,7 +37,6 @@ This is a description of our project. And a [link to its homepage](https://githu
 % its parent grid column.
 
 ::::{div}
-
 - [About](https://odatis-public.gitlab-pages.ifremer.fr/vre/portal/)
 - [Documentation](https://odatis-public.gitlab-pages.ifremer.fr/vre/documentation/)
 - [Gallery](https://odatis-public.gitlab-pages.ifremer.fr/vre/gallery/)
