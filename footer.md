@@ -18,7 +18,7 @@
 
 ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.svg
 <!-- :width: 50px -->
-:height: 50px
+:height: 20px
 :align: left
 ```
 
@@ -36,7 +36,15 @@ This is a description of our project. And a [link to its homepage](https://githu
 % responsive design experience. This grid will have a single column on narrow screens,
 % and fan out into three columns on wide screens. However, it always remains within
 % its parent grid column.
-::::{grid} 1 1 3 3
+
+::::{div}
+
+- [About](https://odatis-public.gitlab-pages.ifremer.fr/vre/portal/)
+- [Documentation](https://odatis-public.gitlab-pages.ifremer.fr/vre/documentation/)
+- [Gallery](https://odatis-public.gitlab-pages.ifremer.fr/vre/gallery/)
+  ::::
+
+<!-- ::::{grid} 1 1 3 3
 
 :::{div}
 
@@ -56,6 +64,6 @@ This is a description of our project. And a [link to its homepage](https://githu
 - And what about a third
   :::
 
-::::
+:::: -->
 
 :::::
