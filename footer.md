@@ -14,9 +14,9 @@
 
 ::::{div}
 
-# Landing Pages
+<!-- # Landing Pages -->
 
-```{image} https://jupyterbook.org/en/stable/_images/logo-square.svg
+```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.
 :width: 50px
 :align: left
 ```
