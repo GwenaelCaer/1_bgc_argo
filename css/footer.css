@@ -71,9 +71,10 @@ body {
   h3,
   h4,
   h5,
-  h6 {
+  h6 
+  /* {
     color: white;
-  }
+  } */
 
   & h1 {
     font-size: 1.25rem;

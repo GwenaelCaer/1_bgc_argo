@@ -18,7 +18,7 @@
 
 ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.svg
 <!-- :width: 50px -->
-:height: 80px
+:height: 50px
 :align: left
 ```
 
