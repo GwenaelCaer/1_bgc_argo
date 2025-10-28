@@ -10,13 +10,6 @@ Welcome! This repository features a series of Python Jupyter Notebooks that walk
 
 ---
 
-## ⚙️ Prerequisites
-
-You’ll need **Jupyter Notebook** to explore this project.  
-We recommend installing the [Anaconda distribution](https://www.anaconda.com/) which includes Jupyter and all the basics.
-
----
-
 ## 🚀 Quickstart
 
 ### 1. Clone the Repository
@@ -28,17 +21,17 @@ cd 1_bgc_argo
 
 ### 2. Set Up the Environment
 
-Use the provided `environment-notebooks.yml` file to create a Conda environment:
+Use the provided `ci/requirements/environment.yml` file to create a Conda environment:
 
 ```bash
-conda env create -f notebooks/environment-notebooks.yml
-conda activate odatis_bgc_argo
+conda env create -f ci/requirements/environment.yml
+conda activate odatis-bgc-argo
 ```
 
 (Optional) Install the kernel for Jupyter:
 
 ```bash
-ipython kernel install --user --name=odatis_bgc_argo
+ipython kernel install --user --name=odatis-bgc-argo
 ```
 
 ### 3. Launch Jupyter
@@ -57,7 +50,7 @@ Your browser should open Jupyter. If not, copy-paste the URL from your terminal 
 
 - Start with the [index.ipynb](.notebooks/index.ipynb) notebook.
 - Notebooks are interactive – feel free to experiment!
-- The project uses non-standard Python packages. Make sure to activate the `odatis_bgc_argo` environment each time before launching Jupyter.
+- The project uses non-standard Python packages. Make sure to activate the `odatis-bgc-argo` environment each time before launching Jupyter.
 
 ---
 
@@ -66,10 +59,9 @@ Your browser should open Jupyter. If not, copy-paste the URL from your terminal 
 To build the documentation locally:
 
 ```bash
-conda env create -f docs/environment-docs.yml
+conda env update -n odatis-bgc-argo -f ci/requirements/environment-dev.yml
 conda activate odatis_docs
-rsync -a notebooks/ docs/
-jupyter-book build docs/
+myst build --html
 ```
 
 The documentation is available here:  

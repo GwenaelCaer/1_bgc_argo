@@ -7,25 +7,16 @@ variables:
 stages:
   - documentation
 
-# ------------------------------------------------------------
-# Étape : création de l'environnement Conda pour la doc
-# ------------------------------------------------------------
 .documentation:python-conda:requirements:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
     - mamba env update -f $DOCUMENTATION_CONDA_REQUIREMENTS -n base
     - myst --version
 
-# ------------------------------------------------------------
-# Étape : build HTML de la doc MyST
-# ------------------------------------------------------------
 .documentation:myst:build:
   extends:
     - .documentation:python-conda:requirements
   script:
-
-    # Build des notebooks / docs
-    # - cd $DOCUMENTATION_SOURCEDIR
     - export HOST=127.0.0.1 # https://github.com/jupyter-book/mystmd/issues/2304
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
     - myst build --html --keep-host
@@ -35,9 +26,6 @@ stages:
       - $DOCUMENTATION_BUILDDIR
     expire_in: 1 week
 
-# ------------------------------------------------------------
-# Étape : préparation GitLab Pages
-# ------------------------------------------------------------
 .documentation:myst:gitlab-pages:
   extends:
     - .documentation:myst:build
@@ -48,9 +36,6 @@ stages:
       - public
     expire_in: 1 week
 
-# ------------------------------------------------------------
-# Job final : Pages
-# ------------------------------------------------------------
 pages:
   stage: documentation
   extends:
