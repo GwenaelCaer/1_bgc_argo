@@ -7,7 +7,7 @@
 % Here we use `grid` to add a basic grid structure to the HTML,
 % but the formatting column sizes are defined manually in css/footer.css
 % see the `grid-template-columns` line.
-:::::{grid} 3 3 5 5
+:::::{grid} 3 3 2 
 :class: outer-grid col-screen
 
 <!-- Project description -->
@@ -17,7 +17,7 @@
 <!-- # Landing Pages -->
 
 ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.svg
-:height: 80px
+:height: 50px
 :align: left
 ```
 
