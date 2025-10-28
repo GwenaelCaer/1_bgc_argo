@@ -1,7 +1,7 @@
 # See docs at: https://mystmd.org/guide/website-navigation#navigation-footer
 version: 1
 site:
-  # options:
-  #   style: ../css/footer.css
+  options:
+    style: ./css/footer.css
   parts:
     footer: footer.md
