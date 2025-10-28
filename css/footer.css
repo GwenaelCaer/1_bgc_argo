@@ -72,12 +72,13 @@ body {
   h4,
   h5,
   h6 
-  /* {
-    color: white;
-  } */
-
   & h1 {
     font-size: 1.25rem;
     font-weight: bold;
   }
 }
+
+
+/* {
+  color: white;
+} */
