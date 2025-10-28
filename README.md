@@ -21,10 +21,10 @@ cd 1_bgc_argo
 
 ### 2. Set Up the Environment
 
-Use the provided `ci/requirements/environment.yml` file to create a Conda environment:
+Use the provided `environment.yml` file to create a Conda environment:
 
 ```bash
-conda env create -f ci/requirements/environment.yml
+conda env create -f environment.yml
 conda activate odatis-bgc-argo
 ```
 
@@ -59,7 +59,6 @@ Your browser should open Jupyter. If not, copy-paste the URL from your terminal 
 To build the documentation locally:
 
 ```bash
-conda env update -n odatis-bgc-argo -f ci/requirements/environment-dev.yml
 conda activate odatis_docs
 myst build --html
 ```
