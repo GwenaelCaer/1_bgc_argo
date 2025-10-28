@@ -7,6 +7,7 @@
 ````
 
 :::{div}
+:class: items-center
 ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_gaia_data-transparent.svg
 :alt: GAIA Data Logo
 :height: 100px
