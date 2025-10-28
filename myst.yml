@@ -2,10 +2,9 @@
 version: 1
 extends:
   - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/myst.yml
-  # - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/extends/authors.yml
+  - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/extends/authors.yml
   # - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/extends/navigation.yml
   # - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/extends/footer.yml
-  - ./footer.yml 
 
 project:
   id: e1554835-9c1e-4213-94f2-e9c0e3c385bc

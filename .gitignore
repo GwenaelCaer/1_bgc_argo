@@ -3,10 +3,6 @@
 **/.ipynb_checkpoints
 **/_documents
 **/_dev
-TODO.md
 development.md
 _build
 **/Thumbs.db
-/notebooks/globcolour.ipynb
-/notebooks/globcolour_without_pytcube.ipynb
-/notebooks/argo_bio-profile_index.txt
