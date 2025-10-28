@@ -1,0 +1,33 @@
+version: 1
+project:
+  open_access: true
+  license: LGPL-3.0-or-later
+    
+site:
+  template: book-theme
+  options:
+    folders: true
+    favicon: https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/favicon.ico
+    logo: https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.svg
+    logo_dark: https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.svg
+    logo_url: https://odatis-public.gitlab-pages.ifremer.fr/vre/portal/
+  parts:
+    footer: |
+        :::::{grid} 3
+        :class: items-center
+
+        ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_data_terra-transparent.svg
+        :alt: Data Terra Logo
+        :height: 100px
+        ```
+
+        ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_gaia_data-transparent.svg
+        :alt: GAIA Data Logo
+        :height: 100px
+        ```
+
+        ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.svg
+        :alt: Odatis Logo
+        :height: 100px
+        ```
+        :::::
