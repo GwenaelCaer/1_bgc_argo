@@ -1,13 +1,11 @@
 # # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 extends:
-  # - ./config.yml
   - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/myst.yml
   - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/extends/authors.yml
-  - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/extends/navigation.yml
+  # - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/extends/navigation.yml
   - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/extends/footer.yml
-  # - ./nav.yml
-  # - ./authors.yml 
+  # - ./footer.yml 
 #   - https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/myst.yml # Pas utilisé car erreur dans les url des navbars
  
 project:

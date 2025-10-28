@@ -1,9 +1,0 @@
-version: 1
-site:
-  nav:
-    - title: Home
-      url: https://odatis-public.gitlab-pages.ifremer.fr/vre/portal
-    - title: Documentation
-      url: https://odatis-public.gitlab-pages.ifremer.fr/vre/documentation
-    - title: Gallery
-      url: https://odatis-public.gitlab-pages.ifremer.fr/vre/gallery
