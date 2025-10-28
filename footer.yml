@@ -4,4 +4,4 @@ site:
   options:
     style: https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/css/footer.css
   parts:
-    footer: footer_2.md
+    footer: footer.md
