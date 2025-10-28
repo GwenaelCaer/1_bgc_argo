@@ -6,21 +6,21 @@
 :::{div}
 ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_data_terra-transparent.svg
 :alt: Data Terra Logo
-:height: 50px
+:height: 70px
 ```
 :::
 
 :::{div}
 ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_gaia_data-transparent.svg
 :alt: GAIA Data Logo
-:height: 50px
+:height: 70px
 ```
 :::
 
 :::{div}
 ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.svg
 :alt: Odatis Logo
-:height: 50px
+:height: 70px
 ```
 :::
 
