@@ -1,10 +1,13 @@
 :::::{grid} 1 1 3 3
 :class: items-center
 
+:::{div}
+:class: items-center
 ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_data_terra-transparent.svg
 :alt: Data Terra Logo
 :height: 100px
 ````
+:::
 
 :::{div}
 :class: items-center
@@ -14,9 +17,12 @@
 ```
 :::
 
+:::{div}
+:class: items-center
 ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.svg
 :alt: Odatis Logo
 :height: 100px
 ```
+:::
 
 :::::
