@@ -14,20 +14,45 @@ site:
   parts:
     footer: |
         :::::{grid} 3
-        :class: items-center
+        :class: justify-center text-center items-center mx-auto my-4
 
         ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_data_terra-transparent.svg
         :alt: Data Terra Logo
-        :height: 100px
+        :height: 80px
+        :class: mx-auto
+        :target: https://www.data-terra.org/
         ```
 
         ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_gaia_data-transparent.svg
         :alt: GAIA Data Logo
-        :height: 100px
+        :height: 80px
+        :class: mx-auto
+        :target: https://www.gaia-data.org/
         ```
 
         ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.svg
         :alt: Odatis Logo
-        :height: 100px
+        :height: 80px
+        :class: mx-auto
+        :target: https://www.odatis-ocean.fr/
         ```
         :::::
+
+# :::::{grid} 3
+# :class: items-center
+
+# ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_data_terra-transparent.svg
+# :alt: Data Terra Logo
+# :height: 100px
+# ```
+
+# ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_gaia_data-transparent.svg
+# :alt: GAIA Data Logo
+# :height: 100px
+# ```
+
+# ```{image} https://gitlab.ifremer.fr/odatis-public/vre/config/raw/main/logos/logo_odatis-transparent.svg
+# :alt: Odatis Logo
+# :height: 100px
+# ```
+# :::::

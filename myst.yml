@@ -12,9 +12,10 @@ project:
     - gwenael_caer
     - catherine_schmechtig
   jupyter:
-    binder:
-      provider: gitlab
-      repo: https://gitlab.ifremer.fr/odatis-public/vre/use-cases/1_bgc_argo
+    # Ne fonctionne pas sur des instances privé de gitlab (ex: fitlab.ifremer.fr)
+    # binder:
+    #   provider: gitlab
+    #   repo: https://gitlab.ifremer.fr/odatis-public/vre/use-cases/1_bgc_argo
   toc:
     - file: notebooks/index.ipynb
     - file: notebooks/1_BGC-Argo_data_access.ipynb
