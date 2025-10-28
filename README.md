@@ -59,7 +59,7 @@ Your browser should open Jupyter. If not, copy-paste the URL from your terminal 
 To build the documentation locally:
 
 ```bash
-conda activate odatis_docs
+conda activate odatis-bgc-argo
 myst build --html
 ```
 
