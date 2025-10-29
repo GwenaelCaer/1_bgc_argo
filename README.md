@@ -26,6 +26,7 @@ Use the provided `environment.yml` file to create a Conda environment:
 ```bash
 conda env create -f environment.yml
 conda activate odatis-bgc-argo
+python -m pip install git+https://github.com/mercator-ocean/copernicus-marine-toolbox.git@aa3a6d2 --no-deps
 ```
 
 (Optional) Install the kernel for Jupyter:
