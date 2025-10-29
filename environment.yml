@@ -10,6 +10,9 @@ dependencies:
   - xarray
   - pytcube
   - s3fs
+  - pip
+  - pip:
+    - jupyterlab_myst
 
   # Docs dependencies
   - mystmd
