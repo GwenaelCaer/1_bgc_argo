@@ -9,16 +9,16 @@ stages:
 .documentation:python-conda:requirements:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
-    - mamba install -c conda-forge -n base mystmd
+    - mamba install -c conda-forge -n base mystmd==1.6.0
     - myst --version
 
 .documentation:myst:build:
   extends:
     - .documentation:python-conda:requirements
   script:
-    - export HOST=127.0.0.1 # https://github.com/jupyter-book/mystmd/issues/2304
+    # - export HOST=127.0.0.1 # https://github.com/jupyter-book/mystmd/issues/2304
     - export BASE_URL="/vre/use-cases/1_bgc_argo"
-    - myst build --html --keep-host
+    - myst build --html #--keep-host
 
   artifacts:
     paths:
