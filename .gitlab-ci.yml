@@ -9,8 +9,7 @@ stages:
 .documentation:python-conda:requirements:
   image: $DOCUMENTATION_BASE_PYTHON_IMAGE
   before_script:
-    # - mamba install -c conda-forge -n base mystmd
-    - pip install mystmd==1.6.4
+    - mamba install -c conda-forge -n base mystmd==1.6.4
     - myst --version
 
 .documentation:myst:build:
